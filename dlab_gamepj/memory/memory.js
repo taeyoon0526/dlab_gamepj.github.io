@@ -8,6 +8,8 @@ let flippedCards = [];
 let matchedCards = [];
 let startTime;
 let timerInterval;
+let buttonContainer = null;
+let completionMessage = null;
 
 // 시작 버튼 클릭 시 게임 시작
 startBtn.addEventListener("click", () => {
@@ -17,23 +19,51 @@ startBtn.addEventListener("click", () => {
 
 // 게임 시작
 function startGame() {
+  // 기존 UI 초기화
+  board.innerHTML = ""; // 기존 카드 초기화
+  flippedCards = [];
+  matchedCards = [];
+  startTime = null;
+  clearInterval(timerInterval);
+  timerDisplay.textContent = "시간: 0.00초";
+
+  // 축하 메시지 제거
+  if (completionMessage) {
+    completionMessage.remove();
+    completionMessage = null;
+  }
+
+  // 버튼 컨테이너 제거
+  if (buttonContainer) {
+    buttonContainer.remove();
+    buttonContainer = null;
+  }
+
   // 카드 섞기
   cards.sort(() => Math.random() - 0.5);
+
   // 카드 생성
-  cards.forEach((icon) => {
+  let allCards = cards.map((icon) => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.icon = icon;
-    card.innerText = "?";
-
-    card.addEventListener("click", () => flipCard(card));
+    card.innerText = icon; // 처음에는 아이콘 보이기
     board.appendChild(card);
+    return card;
   });
+
+  // 3초 후에 카드 뒤집기
+  setTimeout(() => {
+    allCards.forEach((card) => {
+      card.innerText = "?";
+      card.addEventListener("click", () => flipCard(card));
+    });
+  }, 3000);
 }
 
-// 게임 시작 타이머 시작
+// 타이머 시작
 function startTimer() {
-  startTime = Date.now(); // 첫 카드 클릭 시 시간 시작
+  startTime = Date.now();
   timerInterval = setInterval(updateTimer, 10);
 }
 
@@ -76,16 +106,39 @@ function checkMatch() {
 
   if (matchedCards.length === cards.length) {
     clearInterval(timerInterval); // 게임 끝나면 타이머 멈춤
-    setTimeout(showCompletionTime, 300); // 게임 끝난 후 시간 표시
+    setTimeout(showCompletionScreen, 300); // 게임 끝난 후 화면 표시
   }
 }
 
-// 게임 완료 후 시간 표시
-function showCompletionTime() {
+// 게임 완료 후 화면 표시
+function showCompletionScreen() {
   const elapsed = (Date.now() - startTime) / 1000;
   board.innerHTML = ''; // 모든 카드를 지우고
-  const completionMessage = document.createElement("div");
+
+  // 축하 메시지 생성 및 저장
+  completionMessage = document.createElement("div");
   completionMessage.classList.add("completion-message");
   completionMessage.innerText = `축하합니다! 걸린 시간: ${elapsed.toFixed(2)}초`;
   document.body.appendChild(completionMessage);
+
+  // 버튼 컨테이너 생성
+  buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container");
+
+  // 다시하기 버튼 생성
+  const retryBtn = document.createElement("button");
+  retryBtn.classList.add("retry-btn");
+  retryBtn.innerText = "다시하기";
+  retryBtn.addEventListener("click", startGame);
+
+  // 홈 버튼 생성
+  const homeBtn = document.createElement("a");
+  homeBtn.classList.add("home-btn");
+  homeBtn.href = "#";
+  homeBtn.innerText = "홈으로";
+
+  // 버튼 추가
+  buttonContainer.appendChild(retryBtn);
+  buttonContainer.appendChild(homeBtn);
+  document.body.appendChild(buttonContainer);
 }
