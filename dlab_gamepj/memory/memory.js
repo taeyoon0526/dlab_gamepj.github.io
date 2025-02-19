@@ -112,10 +112,13 @@ function checkMatch() {
 
 // 게임 완료 후 화면 표시
 function showCompletionScreen() {
+  clearInterval(timerInterval); // 타이머 멈춤
+  updateTimer(); // 현재 시간을 최종적으로 업데이트
+
   const elapsed = (Date.now() - startTime) / 1000;
   board.innerHTML = ''; // 모든 카드를 지우고
 
-  // 축하 메시지 생성 및 저장
+  // 축하 메시지 생성
   completionMessage = document.createElement("div");
   completionMessage.classList.add("completion-message");
   completionMessage.innerText = `축하합니다! 걸린 시간: ${elapsed.toFixed(2)}초`;
@@ -134,7 +137,7 @@ function showCompletionScreen() {
   // 홈 버튼 생성
   const homeBtn = document.createElement("a");
   homeBtn.classList.add("home-btn");
-  homeBtn.href = "../index.html";
+  homeBtn.href = "#"; // 홈 링크
   homeBtn.innerText = "홈으로";
 
   // 버튼 추가
