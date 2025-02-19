@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>원주율 외우기 게임</title>
+  <link rel="stylesheet" href="pi.css">
+</head>
+<body>
+  <!-- 메인 메뉴 (모드 선택) -->
+  <div id="modeSelection">
+    <h1>원주율 외우기 게임</h1>
+    <p>원하는 모드를 선택하고, 옵션을 설정하세요.</p>
+    
+    <div class="modeWrapper">
+      <!-- 시간 제한 모드 -->
+      <div class="modeRow">
+        <button id="timeModeBtn">시간 제한 모드</button>
+        <select id="timeSelect">
+          <option value="10">10초</option>
+          <option value="20">20초</option>
+          <option value="30" selected>30초</option>
+          <option value="60">60초</option>
+        </select>
+      </div>
+      
+      <!-- 스피드 모드 -->
+      <div class="modeRow">
+        <button id="speedModeBtn">스피드 모드</button>
+        <select id="lengthSelect">
+          <option value="25">25자리</option>
+          <option value="30">30자리</option>
+          <option value="50">50자리</option>
+          <option value="100">100자리</option>
+          <option value="125">125자리</option>
+          <option value="150">150자리</option>
+          <option value="200" selected>200자리</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 새로 추가된 ‘원주율 도감’ 버튼 -->
+    <button id="studyBtn" class="study-button">원주율 도감</button>
+  </div>
+
+  <!-- 게임 진행 화면 -->
+  <div id="gameContainer">
+    <h2 id="gameTitle"></h2>
+    <div id="scoreBoard">
+      <p id="timeLabel"></p>
+      <p>맞힌 자릿수: <span id="currentScore">0</span></p>
+    </div>
+    <div id="keypad"></div>
+    <button id="backToMenuBtn">메인 메뉴</button>
+  </div>
+
+  <!-- 결과 화면 -->
+  <div id="resultContainer">
+    <h2>게임 종료</h2>
+    <p id="finalMessage"></p>
+    <p>최종 기록: <span id="finalScore">0</span></p>
+    <p>최고 기록: <span id="bestScore">0</span></p>
+
+    <!-- 랭킹 등록 -->
+    <div id="rankingInput">
+      <p>랭킹 등록</p>
+      <input type="text" id="userName" placeholder="닉네임 입력">
+      <button id="rankSubmitBtn">등록</button>
+      <button id="noRankBtn">취소</button>
+    </div>
+
+    <!-- 랭킹 표시 -->
+    <div id="rankingDisplay">
+      <h3>랭킹</h3> 
+      <ul id="rankList"></ul>
+    </div>
+
+    <button id="playAgainBtn">다시 플레이</button>
+    <button id="menuBtn">메인 메뉴</button>
+  </div>
+
+  <!-- 기존 게임 로직 -->
+  <script src="pi.js"></script>
+
+  <!-- index.html로 이동-->
+  <div class="comeBackHome">
+    <a class="game-button" href="index.html">게임 선택지</a>
+  </div>
+
+</body>
+</html>
