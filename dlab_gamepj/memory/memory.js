@@ -134,7 +134,7 @@ function showCompletionScreen() {
   // 홈 버튼 생성
   const homeBtn = document.createElement("a");
   homeBtn.classList.add("home-btn");
-  homeBtn.href = "#";
+  homeBtn.href = "dlab_gamepj/index.html";
   homeBtn.innerText = "홈으로";
 
   // 버튼 추가
