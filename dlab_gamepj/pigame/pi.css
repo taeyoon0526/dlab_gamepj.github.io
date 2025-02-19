@@ -1,0 +1,191 @@
+/* 기본 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f6f6f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+}
+
+h1, h2, p {
+  text-align: center;
+  color: #333;
+}
+
+/* 메인 화면(모드 선택) */
+#modeSelection {
+  margin-top: 80px;
+}
+/* 제목, 안내문구 */
+#modeSelection h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+#modeSelection p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* .modeWrapper를 가로 가운데 정렬 */
+.modeWrapper {
+  display: flex;            /* 가로 배치 */
+  flex-direction: row;      /* 왼->오, 기본 */
+  justify-content: center;  /* 부모 기준 가운데 정렬 */
+  align-items: center;      /* 세로 중앙 정렬 */
+  gap: 40px;                /* 각 모드 사이 간격 */
+}
+
+/* 각각의 모드(버튼+셀렉트) 묶음 */
+.modeRow {
+  display: flex;
+  flex-direction: column; /* 버튼과 셀렉트를 세로로 배치 */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;              /* 버튼과 셀렉트 사이 간격 */
+}
+
+/* 시간 제한 모드, 스피드 모드 버튼 */
+.modeRow button {
+  padding: 16px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+.modeRow select {
+  font-size: 18px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* 원주율 도감 버튼: 작고 넓게 */
+.study-button {
+  display: block;
+  margin: 40px auto 0 auto;
+  font-size: 16px;
+  padding: 8px 40px;   /* 세로 좁고 가로 넓게 */
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* 게임 화면 */
+#gameContainer {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+#scoreBoard {
+  margin-bottom: 20px;
+}
+#scoreBoard p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+#keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 0 auto;
+  max-width: 300px;
+}
+.key {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+  text-align: center;
+}
+.key:hover {
+  background: #f0f0f0;
+}
+#backToMenuBtn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* 결과 화면 */
+#resultContainer {
+  display: none;
+  margin-top: 50px;
+  text-align: center;
+}
+#resultContainer p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+#resultContainer button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+}
+#rankingInput {
+  margin: 20px 0;
+}
+#rankingDisplay {
+  margin: 20px 0;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  #modeSelection h1 {
+    font-size: 1.8rem;
+  }
+  /* 모드(버튼+셀렉트) 크기 축소 */
+  .modeRow button {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+  .modeRow select {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+
+  .study-button {
+    font-size: 14px;
+    padding: 6px 24px;
+  }
+
+  .key {
+    padding: 16px;
+    font-size: 18px;
+  }
+  #backToMenuBtn,
+  #resultContainer button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
