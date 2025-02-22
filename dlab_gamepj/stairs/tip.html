@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꿀팁</title>
+    <link rel="stylesheet" href="project.css">
+    <style>
+        @font-face {
+            font-family: 'DungGeunMo';
+            src: url('DungGeunMo.otf') format('opentype');
+        }
+
+        body {
+            font-family: 'DungGeunMo', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            /* 대나무 사진을 배경으로 설정 */
+            background: url('bamboo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 숲 속 느낌을 위한 오버레이 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 77, 42, 0.25); /* 대나무 숲 느낌의 녹색 오버레이 */
+            z-index: 1;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.9); /* 반투명 흰색 */
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 80%;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+            border: 3px solid #2a4d2a; /* 대나무 색상 테두리 */
+        }
+
+        section:hover {
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            transform: translateY(-10px);
+        }
+
+        .title {
+            font-size: 36px;
+            color: #1e3d1e; /* 진한 녹색 */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        div {
+            font-size: 24px;
+            color: #2a4d2a; /* 대나무 숲 테마 색상 */
+            letter-spacing: 1px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            font-family: 'DungGeunMo', sans-serif;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #2a4d2a; /* 대나무 색상 */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #3d663d; /* 호버 시 더 밝은 녹색 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* 애니메이션 키프레임 추가 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            section {
+                width: 90%;
+                padding: 30px;
+            }
+            .title {
+                font-size: 28px;
+            }
+            div {
+                font-size: 20px;
+            }
+            .back-button {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2 class="title">꿀팁</h2>
+        <div>하다 보면 늘어요</div>
+        <button class="back-button" id="backButton">뒤로가기</button>
+    </section>
+    <script>
+        // 뒤로가기 버튼 이벤트 설정
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // project.html로 이동
+        });
+    </script>
+</body>
+</html>

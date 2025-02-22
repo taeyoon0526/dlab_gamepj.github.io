@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('DungGeunMo.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 전체 화면 높이 */
+    /* 대나무 사진 배경 */
+    background: url('bamboo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'DungGeunMo', sans-serif; /* Arial 대신 DungGeunMo 적용 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 숲 속 느낌을 위한 오버레이 */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 77, 42, 0.25); /* 대나무 숲 느낌의 녹색 오버레이 */
+    z-index: 1;
+}
+
+section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* 반투명 흰색 */
+    padding: 40px;
+    border-radius: 15px; /* 더 부드러운 모서리 */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* 세련된 그림자 */
+    width: 50%;
+    max-width: 800px;
+    position: relative;
+    z-index: 2; /* 오버레이 위에 표시 */
+    border: 3px solid #2a4d2a; /* 대나무 색상 테두리 */
+    transition: all 0.3s ease;
+}
+
+section:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* 호버 시 위로 이동 */
+}
+
+h2.title {
+    margin-bottom: 30px;
+    font-size: 32px; /* 조금 더 큰 크기 */
+    color: #1e3d1e; /* 진한 녹색 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.player {
+    width: 50px;
+    height: 50px;
+    padding: auto;
+    background-color: #3d663d; /* 대나무 테마 색상으로 변경 */
+    border-radius: 8px; /* 부드러운 모서리 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.background {
+    flex-grow: 1;
+    /* 대나무 테마 유지, 기존 background.jpg 제거 */
+    background: url('bamboo-background.jpg') center/cover no-repeat; /* 대나무 숲 속 게임 배경 */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 50px;
+    background-size: cover;
+    border: 3px solid #2a4d2a; /* 대나무 색상 테두리로 변경 */
+}
+
+.game-screen {
+    width: 100vw; /* 가로 전체 */
+    min-height: 100vh; /* 세로 최소 화면 크기 */
+}
+
+p.happy {
+    font-size: 20px;
+    color: #4a704a; /* 대나무 색상에 맞춘 녹색 */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.lank, .MODE {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #2a4d2a; /* 대나무 색상 */
+    color: white;
+    font-size: 20px;
+    border-radius: 8px; /* 부드러운 모서리 */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3d663d; /* 호버 시 더 밝은 대나무 색상 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px); /* 호버 시 위로 이동 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    section {
+        width: 90%;
+        padding: 30px;
+    }
+    h2.title {
+        font-size: 26px;
+    }
+    .player {
+        width: 40px;
+        height: 40px;
+    }
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    p.happy {
+        font-size: 18px;
+    }
+}
