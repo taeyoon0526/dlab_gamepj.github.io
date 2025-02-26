@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대나무 피하기</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="game.js" defer></script>
+    <style>
+        @font-face {
+            font-family: 'DungGeunMo';
+            src: url('DungGeunMo.otf') format('opentype');
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            font-family: 'DungGeunMo', sans-serif;
+            font-size: 20px;
+            padding: 10px 20px;
+            background: #2a4d2a; /* 대나무 색상 */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: absolute; /* 게임 화면 밖에 배치 */
+            top: 20px;
+            right: 20px;
+            z-index: 10; /* 다른 요소 위에 표시 */
+        }
+
+        .back-button:hover {
+            background: #3d663d; /* 호버 시 더 밝은 녹색 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            .back-button {
+                font-size: 16px;
+                padding: 8px 15px;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <audio id="bgm" src="bgm.mp3" preload="auto"></audio>
+        <div class="game-container">
+            <div class="title">대나무 피하기</div>
+            <div class="score" id="score">점수: 0</div>
+            <div class="game-screen">
+                <div class="background" id="background">
+                    <div class="wave" id="wave">Wave: 0</div>
+                    <div class="second" id="second">버틴 시간: 0초</div>
+                    <!-- <div class="bullet" id="bullet"></div> 제거 -->
+                    <div class="player" id="player"></div>
+                    <button class="start_button" id="start">도전하기</button>
+                    <div id="bullets-container"></div> <!-- 동적으로 총알을 추가할 컨테이너 -->
+                </div>
+            </div>
+            <!-- 뒤로가기 버튼 추가 -->
+            <button class="back-button" id="backButton">뒤로가기</button>
+        </div>
+    </section>
+    <script>
+        // 뒤로가기 버튼 이벤트 설정
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // project.html로 이동
+        });
+    </script>
+</body>
+</html>
