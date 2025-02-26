@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랭킹</title>
+    <style>
+        @font-face {
+            font-family: 'DungGeunMo';
+            src: url('DungGeunMo.otf') format('opentype');
+        }
+
+        body {
+            font-family: 'DungGeunMo', sans-serif;
+            text-align: center;
+            margin: 0; /* 기본 여백 제거 */
+            padding: 0;
+            /* 대나무 사진을 배경으로 설정 */
+            background: url('bamboo.jpg') no-repeat center center fixed;
+            background-size: cover; /* 배경이 전체를 커버 */
+            min-height: 100vh; /* 전체 화면 높이 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* 배경이 넘치지 않게 */
+        }
+
+        /* 숲 속 분위기를 위한 오버레이 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 77, 42, 0.25); /* 대나무 숲 느낌의 녹색 오버레이 */
+            z-index: 1;
+        }
+
+        #ranking {
+            font-family: 'DungGeunMo', sans-serif;
+            text-align: center;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.9); /* 반투명 흰색 */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 80%;
+            position: relative;
+            z-index: 2; /* 오버레이 위에 표시 */
+            color: #2a4d2a; /* 대나무 숲 테마 색상 */
+            transition: all 0.3s ease;
+        }
+
+        #ranking:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px); /* 호버 시 위로 이동 */
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #1e3d1e; /* 진한 녹색 */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2a4d2a;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #3d663d; /* 부드러운 녹색 */
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 22px;
+            color: #2a4d2a;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            font-family: 'DungGeunMo', sans-serif;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #2a4d2a; /* 대나무 색상 */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #3d663d; /* 호버 시 더 밝은 녹색 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            #ranking {
+                width: 90%;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            li {
+                font-size: 18px;
+            }
+            p {
+                font-size: 18px;
+            }
+            .back-button {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>랭킹</h1>
+    <div id="ranking">
+        <!-- 뒤로가기 버튼 추가 -->
+        <button class="back-button" id="backButton">뒤로가기</button>
+    </div>
+    <script>
+        // localStorage에서 점수 가져오기
+        const scores = JSON.parse(localStorage.getItem('scores')) || [];
+        
+        // 점수를 내림차순으로 정렬
+        scores.sort((a, b) => b - a);
+        
+        // 상위 10개 점수만 표시
+        const topScores = scores.slice(0, 10);
+        
+        // 점수 표시
+        const rankingDiv = document.getElementById('ranking');
+        if (topScores.length > 0) {
+            rankingDiv.innerHTML = '<h2>최고 점수 순위</h2><ul>' + 
+                topScores.map((score, index) => `<li>${index + 1}.${score}점</li>`).join('') + 
+                '</ul><button class="back-button" id="backButton">뒤로가기</button>';
+        } else {
+            rankingDiv.innerHTML = '<p>아직 기록된 점수가 없습니다.</p>' +
+                '<button class="back-button" id="backButton">뒤로가기</button>';
+        }
+
+        // 뒤로가기 버튼 이벤트 설정
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // project.html로 이동
+        });
+    </script>
+</body>
+</html>
