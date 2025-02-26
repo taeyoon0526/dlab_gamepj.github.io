@@ -63,9 +63,9 @@ body {
 }
 
 .player {
-    width: 15px;
-    height: 15px;
-    background-color: blue;
+    width:2%;
+    height:5%;
+    background: url('player.jpg') center/cover no-repeat;
     border-radius: 10%;
     position: absolute;
     display: none;
@@ -111,9 +111,8 @@ body {
 }
 
 .bullet {
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
+    width: 20px;
+    height: 40px;
+    background: url('bullet.jpg') center/cover no-repeat;
     position: absolute;
 }
