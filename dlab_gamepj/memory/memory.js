@@ -1,35 +1,31 @@
-const startBtn = document.querySelector(".btn"); // Selects the first .btn (Start button)
+const startBtn = document.querySelector(".btn");
 const board = document.querySelector(".game-board");
 const timerDisplay = document.querySelector(".timer");
-const menuBtn = document.querySelector(".menu_btn"); // Still works since menu_btn is kept for margin
+const menuBtn = document.querySelector(".menu_btn");
 
 const icons = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍍", "🥝", "🍓"];
 let cards = [...icons, ...icons];
 let flippedCards = [];
 let matchedCards = [];
-let startTime;
+let startTime = 0;
 let timerInterval;
 let buttonContainer = null;
 let completionMessage = null;
 
-// 시작 버튼 클릭 시 게임 시작
 startBtn.addEventListener("click", () => {
     startBtn.style.display = "none";
     menuBtn.style.display = "none";
     startGame();
 });
 
-// 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
     window.location.href = "../index.html";
 });
 
-// 게임 시작
 function startGame() {
     board.innerHTML = "";
     flippedCards = [];
     matchedCards = [];
-    startTime = null;
     clearInterval(timerInterval);
     timerDisplay.textContent = "시간: 0.00초";
 
@@ -57,12 +53,15 @@ function startGame() {
     setTimeout(() => {
         allCards.forEach((card) => {
             card.innerText = "?";
-            card.addEventListener("click", () => flipCard(card));
         });
     }, 3000);
+
+    board.addEventListener("click", (e) => {
+        const card = e.target.closest(".card");
+        if (card) flipCard(card);
+    });
 }
 
-// 나머지 함수들은 그대로 유지
 function startTimer() {
     startTime = Date.now();
     timerInterval = setInterval(updateTimer, 10);
@@ -113,7 +112,7 @@ function showCompletionScreen() {
     timerDisplay.textContent = "";
 
     const elapsed = (Date.now() - startTime) / 1000;
-    board.innerHTML = '';
+    board.innerHTML = "";
 
     completionMessage = document.createElement("div");
     completionMessage.classList.add("completion-message");
@@ -128,10 +127,10 @@ function showCompletionScreen() {
     retryBtn.innerText = "다시하기";
     retryBtn.addEventListener("click", startGame);
 
-    const homeBtn = document.createElement("a");
+    const homeBtn = document.createElement("button");
     homeBtn.classList.add("home-btn");
-    homeBtn.href = "../index.html";
     homeBtn.innerText = "홈으로";
+    homeBtn.addEventListener("click", () => window.location.href = "../index.html");
 
     buttonContainer.appendChild(retryBtn);
     buttonContainer.appendChild(homeBtn);
