@@ -53,17 +53,10 @@ function startGame() {
         return card;
     });
 
-    const notice = document.createElement("div");
-    notice.textContent = "3초 후 카드가 숨겨집니다!";
-    notice.style.fontSize = "20px";
-    notice.style.color = "#333";
-    document.body.appendChild(notice);
-
     setTimeout(() => {
         allCards.forEach((card) => {
             card.innerText = "?";
         });
-        notice.remove(); // 알림 제거
     }, 3000);
 
     board.addEventListener("click", (e) => {
