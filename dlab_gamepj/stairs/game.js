@@ -55,7 +55,7 @@ class Bullet {
             this.posX = Math.floor(Math.random() * 1500) - 150  // -700 ~ 700까지의 난수 생성
             this.posY = 10; // 초기 y 위치
         } else if (this.dir === "horizontal_1") {
-            this.posX = 1340  // -700 ~ 700까지의 난수 생성  // -700 ~ 700까지의 난수 생성
+            this.posX = 1540  // -700 ~ 700까지의 난수 생성  // -700 ~ 700까지의 난수 생성
             this.posY = Math.floor(Math.random() * 1500) + 120; // 초기 y 위치
         }
         this.speed = BULLET_SPEED;
@@ -201,7 +201,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                     const bullet = new Bullet("vertical"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
-                if (Math.random() < 1) {
+                if (Math.random() < 0.5) {
                     const bullet = new Bullet("horizontal_1"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
