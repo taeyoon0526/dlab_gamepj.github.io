@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memory Game</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stage_1/style.css">
+<!--  <link rel="stylesheet" href="stage_2/style.css">-->
 </head>
 <body>
 
   <h1>카드 뒤집기 게임</h1>
-  
+
   <button class="btn" role="button"><span class="text">게임 시작</span></button>
   <button class="btn menu_btn" role="button"><span class="text">메뉴 화면으로</span></button>
 
   <div class="game-board"></div>
   <div class="timer"></div>
 
-  <script src="script.js"></script>
+  <script src="stage_1/script.js"></script>
+  <script src="stage_2/script.js" defer></script>
 </body>
 </html>
 
 <!-- 1. 만약 15초안에 클리어했다면 스테이지2로 넘어가기
   - 스테이지 1 -> 4x4(과일)
-  - 스테이지 2 -> 5x5(다른 이모티콘) -->
+  - 스테이지 2 -> 5x5(다른 이모티콘) --><!-- 다음 스테이지 버튼 클릭 시 stage_2의 script.js와 style.css 로드 -->

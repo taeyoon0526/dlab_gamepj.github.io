@@ -21,7 +21,7 @@ startBtn.addEventListener("click", () => {
 
 // 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "../../index.html";
+    window.location.href = "../../../index.html";
 });
 
 // 게임 시작
@@ -113,7 +113,7 @@ function checkMatch() {
     }
 }
 
-// 완료 화면 표시 
+// 완료 화면 표시
 function showCompletionScreen() {
     clearInterval(timerInterval);
     const elapsed = (Date.now() - startTime) / 1000;
@@ -139,7 +139,7 @@ function showCompletionScreen() {
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("home-btn");
     homeBtn.innerText = "홈으로";
-    homeBtn.addEventListener("click", () => window.location.href = "../../index.html");
+    homeBtn.addEventListener("click", () => window.location.href = "../../../index.html");
 
     buttonContainer.append(retryBtn, homeBtn);
 
@@ -149,8 +149,9 @@ function showCompletionScreen() {
         nextStageBtn.classList.add("next-stage-btn");
         nextStageBtn.innerText = "다음 스테이지";
         nextStageBtn.addEventListener("click", () => {
-            alert("준비 중");
+            window.location.reload();  // stage_2가 로드되도록 새로고침
         });
+
         buttonContainer.appendChild(nextStageBtn);
     }
 
