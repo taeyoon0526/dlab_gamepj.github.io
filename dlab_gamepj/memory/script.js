@@ -21,7 +21,7 @@ startBtn.addEventListener("click", () => {
 
 // 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "../index.html";
+    window.location.href = "../../index.html";
 });
 
 // 게임 시작
@@ -139,7 +139,7 @@ function showCompletionScreen() {
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("home-btn");
     homeBtn.innerText = "홈으로";
-    homeBtn.addEventListener("click", () => window.location.href = "../index.html");
+    homeBtn.addEventListener("click", () => window.location.href = "../../index.html");
 
     buttonContainer.append(retryBtn, homeBtn);
 
