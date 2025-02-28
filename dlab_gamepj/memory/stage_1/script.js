@@ -1,7 +1,7 @@
-const startBtn = document.querySelector(".btn");
+const startBtn = document.querySelector(".btn"); // "게임 시작" 버튼
 const board = document.querySelector(".game-board");
 const timerDisplay = document.querySelector(".timer");
-const menuBtn = document.querySelector(".menu_btn");
+const menuBtn = document.querySelector(".menu_btn"); // "메뉴 화면으로" 버튼
 
 const icons = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍍", "🥝", "🍓"];
 let cards = [...icons, ...icons];
@@ -113,43 +113,43 @@ function checkMatch() {
     }
 }
 
-// 완료 화면 표시 
+// 완료 화면 표시 (30초 이하로 클리어 시 "다음 스테이지" 버튼 추가)
 function showCompletionScreen() {
     clearInterval(timerInterval);
+    updateTimer();
+    timerDisplay.textContent = "";
+
     const elapsed = (Date.now() - startTime) / 1000;
     board.innerHTML = "";
 
-    // 완료 메시지
     completionMessage = document.createElement("div");
     completionMessage.classList.add("completion-message");
     completionMessage.innerText = `축하합니다! 걸린 시간: ${elapsed.toFixed(2)}초`;
     document.body.appendChild(completionMessage);
 
-    // 버튼 컨테이너 생성
     buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button-container");
 
-    // 다시하기 버튼
     const retryBtn = document.createElement("button");
     retryBtn.classList.add("retry-btn");
     retryBtn.innerText = "다시하기";
     retryBtn.addEventListener("click", startGame);
 
-    // 홈으로 버튼
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("home-btn");
     homeBtn.innerText = "홈으로";
-    homeBtn.addEventListener("click", () => window.location.href = "../index.html");
+    homeBtn.addEventListener("click", () => window.location.href = "../../../index.html");
 
-    buttonContainer.append(retryBtn, homeBtn);
+    buttonContainer.appendChild(retryBtn);
+    buttonContainer.appendChild(homeBtn);
 
-    // 15초 이내 클리어 시 다음 스테이지 버튼 추가
+    // 30초 이하로 클리어 시 "다음 스테이지" 버튼 추가
     if (elapsed <= 30) {
         const nextStageBtn = document.createElement("button");
         nextStageBtn.classList.add("next-stage-btn");
         nextStageBtn.innerText = "다음 스테이지";
         nextStageBtn.addEventListener("click", () => {
-            alert("준비 중");
+            window.location.href = "../stage_2/"; // stage_2로 이동 (index.html 자동 로드)
         });
         buttonContainer.appendChild(nextStageBtn);
     }
