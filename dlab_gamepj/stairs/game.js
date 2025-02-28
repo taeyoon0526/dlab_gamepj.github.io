@@ -47,16 +47,16 @@ class Bullet {
     constructor(dir) {
         this.element = document.createElement('div'); //담을 박스 생성
         this.element.className = 'bullet';
-        this.dir = dir
+        this.dir = dir;
         if (this.dir === "horizontal") {
-            this.posX = 68  // -700 ~ 700까지의 난수 생성
-            this.posY = Math.floor(Math.random() * 1500) + 120; // 초기 y 위치
+            this.posX = 68; // -700 ~ 700까지의 난수 생성
+            this.posY = Math.floor(Math.random() * (620 - 100 + 1)) + 100; // 100 ~ 620 사이 랜덤 y 위치
         } else if (this.dir === "vertical") {
-            this.posX = Math.floor(Math.random() * 1500) - 150  // -700 ~ 700까지의 난수 생성
+            this.posX = Math.floor(Math.random() * (1500 - (-150) + 1)) - 150; // -150 ~ 1500까지의 난수 생성
             this.posY = 10; // 초기 y 위치
         } else if (this.dir === "horizontal_1") {
-            this.posX = 1540  // -700 ~ 700까지의 난수 생성  // -700 ~ 700까지의 난수 생성
-            this.posY = Math.floor(Math.random() * 1500) + 120; // 초기 y 위치
+            this.posX = 1540; // 오른쪽에서 고정
+            this.posY = Math.floor(Math.random() * (620 - 100 + 1)) + 100; // 100 ~ 620 사이 랜덤 y 위치
         }
         this.speed = BULLET_SPEED;
         document.getElementById('bullets-container').appendChild(this.element); // 컨테이너에 자식 노드로 추가
@@ -71,24 +71,23 @@ class Bullet {
     move(deltaTime) {
         const bulletMoveDistance = this.speed * deltaTime; //움직일 거리 정해주기
         if (this.dir === "vertical") {
-            this.posY += bulletMoveDistance; //움직여주기
+            this.posY += bulletMoveDistance; // 아래로 이동
             if (this.posY > 640) {
                 this.remove(); //밖으로 나가면 총알 지워주기
             }
         } else if (this.dir === "horizontal") {
-            this.posX += bulletMoveDistance; //움직여주기
+            this.posX += bulletMoveDistance; // 오른쪽으로 이동
             if (this.posX > background_size.offsetWidth) {
                 this.remove(); //밖으로 나가면 총알 지워주기
             }
         } else if (this.dir === "horizontal_1") {
-            this.posX -= bulletMoveDistance; //움직여주기
-            if (this.posX > background_size.offsetWidth) {
+            this.posX -= bulletMoveDistance; // 왼쪽으로 이동 (오른쪽에서 시작)
+            if (this.posX < 0) { // 왼쪽 끝에서 제거
                 this.remove(); //밖으로 나가면 총알 지워주기
             }
         }
         this.updatePosition(); //움직이고 움직인거 업데이트(화면에)
     }
-
 
     remove() {
         if (this.element.parentNode) {
@@ -105,7 +104,6 @@ class Bullet {
             playerRect.top > bulletRect.bottom);
     }
 }
-
 
 class Game { //본격적으로 게임을 실행하는 공간이다.
     constructor() { //player클래스의 메서드를을 쓰기 쉽에 this.player에다 넣어준다.
@@ -126,7 +124,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
             this.setupKeyboard();
             this.second = 0;
             this.second_time = 0;
-            this.wave = 0;
+            this.wave = 1;
             this.WaveScore = 0;
             this.WaveTime = 10;
             this.WaveChange = 0;
@@ -180,10 +178,10 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
             this.intervalTimer = 0; // 타이머 리셋
         }
         if (this.bulletSpawnTime >= this.BULLET_INTERVAL) {
-            if (this.wave <= 2) {
+            if (this.wave <= 1) {
                 const bullet = new Bullet("vertical"); // 인스턴스 생성
                 this.bullets.push(bullet); // 배열에 추가
-            } else if (this.wave > 2){
+            } else if (this.wave > 1){
                 if (Math.random() < 0.5) {
                     const bullet = new Bullet("horizontal"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
@@ -192,7 +190,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                     const bullet = new Bullet("vertical"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
-            } else if (this.wave > 7){
+            } else if (this.wave > 3){
                 if (Math.random() < 0.5) {
                     const bullet = new Bullet("horizontal"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
@@ -205,16 +203,29 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                     const bullet = new Bullet("horizontal_1"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
-            } else if (this.wave == 10){
-                if (Math.random() < 1) {
+            } else if (this.wave > 4){
+                if (Math.random() < 0.5) {
                     const bullet = new Bullet("horizontal"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
-                if (Math.random() < 1) {
+                if (Math.random() < 0.5) {
                     const bullet = new Bullet("vertical"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
-                if (Math.random() < 1) {
+                if (Math.random() < 0.5) {
+                    const bullet = new Bullet("horizontal_1"); // 인스턴스 생성
+                    this.bullets.push(bullet); // 배열에 추가
+                }
+            } else if (this.wave > 5){
+                if (Math.random() < 0.6) {
+                    const bullet = new Bullet("horizontal"); // 인스턴스 생성
+                    this.bullets.push(bullet); // 배열에 추가
+                }
+                if (Math.random() < 0.6) {
+                    const bullet = new Bullet("vertical"); // 인스턴스 생성
+                    this.bullets.push(bullet); // 배열에 추가
+                }
+                if (Math.random() < 0.6) {
                     const bullet = new Bullet("horizontal_1"); // 인스턴스 생성
                     this.bullets.push(bullet); // 배열에 추가
                 }
@@ -278,9 +289,8 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                 this.updateScore();
                 this.ScoreTime = 0;
             }
-
         }
-        if (this.wave >= 10) {
+        if (this.wave > 10) {
             alert("와우! 10웨이브를 다 깼어요!");
             this.isRunning = false;
             window.location.href = "index.html";
