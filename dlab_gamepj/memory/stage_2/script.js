@@ -134,7 +134,15 @@ function checkMatch() {
 
     flippedCards = [];
 
-    if (matchedCards.length === cards.length) {
+    // 24장 매칭 후 마지막 카드 자동 뒤집기
+    if (matchedCards.length === cards.length - 1) {
+        const remainingCard = document.querySelector(".card:not(.flipped)");
+        if (remainingCard) {
+            remainingCard.innerText = remainingCard.dataset.icon;
+            remainingCard.classList.add("flipped");
+            matchedCards.push(remainingCard);
+            console.log("마지막 카드 자동 뒤집기:", remainingCard.dataset.icon);
+        }
         clearInterval(timerInterval);
         console.log("게임 완료, 총 시간:", (Date.now() - startTime) / 1000);
         setTimeout(showCompletionScreen, 300);
