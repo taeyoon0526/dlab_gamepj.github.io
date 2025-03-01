@@ -7,7 +7,10 @@
     <list default="true" id="ecbacaba-23fc-416d-b203-772e8925ca8b" name="변경" comment="버그 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,7 @@
       <workItem from="1740449216345" duration="854000" />
       <workItem from="1740646181932" duration="5582000" />
       <workItem from="1740699598669" duration="29000" />
-      <workItem from="1740804949284" duration="6073000" />
+      <workItem from="1740804949284" duration="8183000" />
     </task>
     <task id="LOCAL-00001" summary="파일 위치 수정">
       <option name="closed" value="true" />
@@ -150,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740810720206</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="버그 수정">
+      <option name="closed" value="true" />
+      <created>1740811716932</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740811716932</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

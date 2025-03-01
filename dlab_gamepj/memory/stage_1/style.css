@@ -96,7 +96,7 @@ h1 {
     touch-action: manipulation;
     white-space: nowrap;
     cursor: pointer;
-    margin-top: 20px; /* 두 버튼 간 간격 유지 */
+    margin-top: 20px;
 }
 
 .btn:active,
