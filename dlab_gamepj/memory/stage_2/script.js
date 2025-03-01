@@ -11,6 +11,7 @@ let startTime = null; // null로 초기화, 게임 시작 시 설정
 let timerInterval;
 let buttonContainer = null;
 let completionMessage = null;
+let isClickable = false; // 카드 클릭 가능 여부 플래그
 
 // 시작 버튼 클릭 시 게임 시작
 startBtn.addEventListener("click", () => {
@@ -65,17 +66,19 @@ function startGame() {
 
     console.log("카드 생성 완료, 총 카드 수:", allCards.length); // 디버깅 로그
 
-    // 3초 지연 후 카드 숨김 확인
+    // 5초 지연 후 카드 숨김 확인
+    isClickable = false; // 5초 동안 클릭 비활성화
     setTimeout(() => {
         allCards.forEach((card) => {
             card.innerText = "?";
         });
-        console.log("카드 숨김 완료");
+        isClickable = true; // 5초 후 클릭 활성화
+        console.log("카드 클릭 활성화");
     }, 5000);
 
     board.addEventListener("click", (e) => {
         const card = e.target.closest(".card");
-        if (card) flipCard(card);
+        if (card && isClickable) flipCard(card); // 클릭 가능 여부 확인 후 뒤집기
     });
 }
 
@@ -182,13 +185,13 @@ function showCompletionScreen() {
     buttonContainer.appendChild(retryBtn);
     buttonContainer.appendChild(homeBtn);
 
-    // 30초 이하로 클리어 시 "다음 스테이지" 버튼 추가)
+    // 30초 이하로 클리어 시 "다음 스테이지" 버튼 추가 (추가 스테이지가 없다고 가정)
     if (elapsed <= 30) {
         const nextStageBtn = document.createElement("button");
         nextStageBtn.classList.add("next-stage-btn");
         nextStageBtn.innerText = "다음 스테이지";
         nextStageBtn.addEventListener("click", () => {
-            alert("마지막 스테이지입니다!");
+            alert("마지막 스테이지입니다!"); // 더 이상 스테이지가 없다고 알림
         });
         buttonContainer.appendChild(nextStageBtn);
     }

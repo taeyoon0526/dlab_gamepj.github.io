@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecbacaba-23fc-416d-b203-772e8925ca8b" name="변경" comment="업데이트">
+    <list default="true" id="ecbacaba-23fc-416d-b203-772e8925ca8b" name="변경" comment="버그 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" afterDir="false" />
@@ -92,7 +92,7 @@
       <workItem from="1740449216345" duration="854000" />
       <workItem from="1740646181932" duration="5582000" />
       <workItem from="1740699598669" duration="29000" />
-      <workItem from="1740804949284" duration="5084000" />
+      <workItem from="1740804949284" duration="6073000" />
     </task>
     <task id="LOCAL-00001" summary="파일 위치 수정">
       <option name="closed" value="true" />
@@ -142,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740810094546</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="버그 수정">
+      <option name="closed" value="true" />
+      <created>1740810720206</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740810720206</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +161,7 @@
     <MESSAGE value="5스테이지 시도" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="업데이트" />
-    <option name="LAST_COMMIT_MESSAGE" value="업데이트" />
+    <MESSAGE value="버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="버그 수정" />
   </component>
 </project>

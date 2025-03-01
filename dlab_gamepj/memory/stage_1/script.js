@@ -1,7 +1,7 @@
 const startBtn = document.querySelector(".btn"); // "게임 시작" 버튼
 const board = document.querySelector(".game-board");
 const timerDisplay = document.querySelector(".timer");
-const menuBtn = document.querySelector(".btn"); // "메뉴 화면으로" 버튼
+const menuBtn = document.querySelector(".menu_btn"); // "메뉴 화면으로" 버튼
 
 const icons = ["🍎", "🍌", "🍒", "🍇", "🍉", "🍍", "🥝", "🍓"];
 let cards = [...icons, ...icons];
@@ -11,7 +11,6 @@ let startTime = 0;
 let timerInterval;
 let buttonContainer = null;
 let completionMessage = null;
-let isClickable = false; // 카드 클릭 가능 여부 플래그
 
 // 시작 버튼 클릭 시 게임 시작
 startBtn.addEventListener("click", () => {
@@ -20,9 +19,9 @@ startBtn.addEventListener("click", () => {
     startGame();
 });
 
-// 메뉴 버튼 클릭 시 메뉴 화면으로 이동
+// 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "/dlab_gamepj.github.io/pi_dictionary.html"; // 메뉴 화면으로 이동
+    window.location.href = "../../index.html"; // memory/ 상위로 이동 (루트 index.html)
 });
 
 // 게임 시작
@@ -54,18 +53,15 @@ function startGame() {
         return card;
     });
 
-    isClickable = false; // 3초 동안 클릭 비활성화
     setTimeout(() => {
         allCards.forEach((card) => {
             card.innerText = "?";
         });
-        isClickable = true; // 3초 후 클릭 활성화
-        console.log("카드 클릭 활성화");
     }, 3000);
 
     board.addEventListener("click", (e) => {
         const card = e.target.closest(".card");
-        if (card && isClickable) flipCard(card); // 클릭 가능 여부 확인 후 뒤집기
+        if (card) flipCard(card);
     });
 }
 
