@@ -21,7 +21,7 @@ startBtn.addEventListener("click", () => {
 
 // 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "/index.html"; // 루트의 index.html로 이동
+    window.location.href = "/dlab_gamepj.github.io/index.html"; // 루트의 dlab_gamepj.github.io/index.html로 이동
 });
 
 // 게임 시작
@@ -139,7 +139,7 @@ function showCompletionScreen() {
     homeBtn.classList.add("home-btn");
     homeBtn.innerText = "홈으로";
     homeBtn.addEventListener("click", () => {
-        window.location.href = "/index.html"; // 제일 상위 폴더의 index.html로 이동
+        window.location.href = "/dlab_gamepj.github.io/index.html"; // 루트의 dlab_gamepj.github.io/index.html로 이동
     });
 
     buttonContainer.appendChild(retryBtn);
