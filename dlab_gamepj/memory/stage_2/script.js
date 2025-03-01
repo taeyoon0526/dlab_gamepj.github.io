@@ -71,7 +71,7 @@ function startGame() {
             card.innerText = "?";
         });
         console.log("카드 숨김 완료");
-    }, 3000);
+    }, 5000);
 
     board.addEventListener("click", (e) => {
         const card = e.target.closest(".card");
@@ -182,13 +182,13 @@ function showCompletionScreen() {
     buttonContainer.appendChild(retryBtn);
     buttonContainer.appendChild(homeBtn);
 
-    // 30초 이하로 클리어 시 "다음 스테이지" 버튼 추가 (추가 스테이지가 없다고 가정)
+    // 30초 이하로 클리어 시 "다음 스테이지" 버튼 추가)
     if (elapsed <= 30) {
         const nextStageBtn = document.createElement("button");
         nextStageBtn.classList.add("next-stage-btn");
         nextStageBtn.innerText = "다음 스테이지";
         nextStageBtn.addEventListener("click", () => {
-            alert("마지막 스테이지입니다!"); // 더 이상 스테이지가 없다고 알림
+            alert("마지막 스테이지입니다!");
         });
         buttonContainer.appendChild(nextStageBtn);
     }
