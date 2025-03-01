@@ -55,7 +55,7 @@
             <div class="score" id="score">점수: 0</div>
             <div class="game-screen">
                 <div class="background" id="background">
-                    <div class="wave" id="wave">Wave: 0</div>
+                    <div class="wave" id="wave">Wave: 1</div>
                     <div class="second" id="second">버틴 시간: 0초</div>
                     <!-- <div class="bullet" id="bullet"></div> 제거 -->
                     <div class="player" id="player"></div>
@@ -72,6 +72,21 @@
         document.getElementById('backButton').addEventListener('click', function() {
             window.location.href = 'index.html'; // project.html로 이동
         });
+    </script>
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/devtools-detector@2.0.22/lib/devtools-detector.min.js
+    "></script>
+    <script>
+        var view = document.createElement('div');
+        document.body.appendChild(view);
+
+        devtoolsDetector.addListener(function (isOpen) {
+            view.innerText = isOpen
+            ? 'devtools status: open'
+            : 'devtools status: close';
+        });
+        devtoolsDetector.launch();
     </script>
 </body>
 </html>
