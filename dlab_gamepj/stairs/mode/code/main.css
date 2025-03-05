@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('../../DungGeunMo.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DungGeunMo', sans-serif;
+    background: url('../../mode/pictures/bamboo.jpg') no-repeat center center fixed; /* 대나무 사진으로 뒷배경 설정 */
+    background-size: cover;
+    min-height: 100vh;
+    overflow-y: auto; /* 스크롤 활성화 */
+    position: relative;
+    color: #fff; /* 기본 텍스트 색상 흰색으로 현대적 느낌 */
+}
+
+/* 대나무 배경에 세련된 오버레이 추가 */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(42, 77, 42, 0.3), rgba(20, 40, 20, 0.5)); /* 부드러운 그라데이션 오버레이 */
+    z-index: 1;
+}
+
+.modes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0; /* 더 넉넉한 여백 */
+    z-index: 2; /* 오버레이 위에 표시 */
+}
+
+.mode-section {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95); /* 살짝 더 밝은 반투명 흰색 */
+    padding: 60px 40px; /* 더 넓은 패딩 */
+    border-radius: 25px; /* 둥근 모서리 강화 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(42, 77, 42, 0.1); /* 깊고 부드러운 그림자 */
+    width: 75%; /* 약간 더 넓게 */
+    max-width: 900px; /* 최대 폭 증가 */
+    margin: 30px 0; /* 섹션 간 간격 증가 */
+    position: relative;
+    z-index: 2;
+    border: 2px solid #3d663d; /* 대나무 색상 테두리, 조금 더 밝게 */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* 부드럽고 현대적인 전환 */
+    backdrop-filter: blur(5px); /* 배경 블러 효과로 모던함 추가 */
+    overflow: hidden; /* 모서리 밖으로 넘침 방지 */
+}
+
+/* 각 모드별 배경 이미지 */
+.item-mode {
+    background: url('../../mode/pictures/item.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.time200-mode {
+    background: url('../../mode/pictures/200.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.timing-mode {
+    background: url('../../mode/pictures/timing.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.dark-mode {
+    background: url('../../mode/pictures/tree.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* 호버 효과 */
+.mode-section:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 0 0 30px rgba(42, 77, 42, 0.15);
+    transform: translateY(-10px) scale(1.02); /* 살짝 확대 효과 추가 */
+}
+
+/* 애니메이션으로 섹션 등장 */
+.mode-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2.title {
+    margin-bottom: 40px; /* 더 넉넉한 간격 */
+    font-size: 52px; /* 더 큰 크기 */
+    color: #ffd4d4; /* 진한 녹색 유지 */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* 더 두드러진 그림자 */
+    letter-spacing: 1.5px; /* 글자 간격으로 세련미 추가 */
+    font-weight: bold;
+}
+
+button {
+    width: 220px; /* 약간 더 넓게 */
+    height: 65px;
+    margin: 15px;
+    padding: 15px 35px;
+    border: none;
+    background: linear-gradient(135deg, #2a4d2a, #3d663d); /* 그라데이션으로 현대적 느낌 */
+    color: #fff;
+    font-size: 22px; /* 더 큰 폰트 */
+    border-radius: 12px; /* 더 둥글게 */
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase; /* 대문자로 모던함 추가 */
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #3d663d, #4a704a); /* 호버 시 밝은 그라데이션 */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px) scale(1.05); /* 더 드라마틱한 효과 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .mode-section {
+        width: 90%;
+        padding: 40px;
+    }
+    h2.title {
+        font-size: 38px;
+    }
+    button {
+        font-size: 18px;
+        padding: 12px 25px;
+        width: 180px;
+        height: 55px;
+    }
+}
+
+/* 기존 stopwatch 클래스 제거 및 통합 */

@@ -304,7 +304,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                 this.bullets.splice(index, 1);
                 bullet.remove();
             } else if (bullet.colliderect(this.player)) {
-                alert("게임이 종료되었습니다!");
+                alert(`게임이 종료되었습니다! / 당신의 점수: ${this.score}점`);
                 let scores = JSON.parse(localStorage.getItem('scores')) || [];
                 scores.push(this.score);
                 localStorage.setItem('scores', JSON.stringify(scores));
