@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ecbacaba-23fc-416d-b203-772e8925ca8b" name="변경" comment="버그 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/pigame/pi.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/pigame/pi.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/pigame/pi_dictionary.html" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/pigame/pi_dictionary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +32,12 @@
     &quot;assignee&quot;: &quot;taeyoon0526&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/taeyoon0526/dlab_gamepj.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;9b508ae0-f5e4-4955-96b8-d24457b99116&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/taeyoon0526/dlab_gamepj.github.io.git",
+    "accountId": "b6fceed8-586d-46d7-b5a4-327139ccb4b7"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -55,6 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/iamta/WebstormProjects/dlab_gamepj.github.io/dlab_gamepj/memory/stage_2&quot;,
@@ -63,7 +62,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Mercurial&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -80,7 +79,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-WS-243.24978.60" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +95,9 @@
       <workItem from="1740646181932" duration="5582000" />
       <workItem from="1740699598669" duration="29000" />
       <workItem from="1740804949284" duration="8183000" />
+      <workItem from="1741170728238" duration="192000" />
+      <workItem from="1741170944398" duration="34000" />
+      <workItem from="1741170989371" duration="903000" />
     </task>
     <task id="LOCAL-00001" summary="파일 위치 수정">
       <option name="closed" value="true" />
