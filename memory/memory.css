@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    overflow: hidden;
+  }
+  
+  h1 {
+    margin-bottom: 40px;
+    font-size: 48px; /* 제목 크기 크게 */
+    color: #000;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* 텍스트에 그림자 추가 */
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    margin-top: 40px; /* 게임 보드 위치 아래로 */
+  }
+  
+  .card {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .card.flipped {
+    background-color: #2ecc71;
+    transform: rotateY(180deg);
+  }
+  
+  .timer {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .completion-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .start_btn {
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  
+  .start_btn:active,
+  .start_btn:hover {
+    outline: 0;
+  }
+  
+  .start_btn span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+  }
+  
+  .start_btn:hover span {
+    background: none;
+  }
+  
+  @media (min-width: 768px) {
+    .start_btn {
+      font-size: 24px;
+      min-width: 196px;
+    }
+  }

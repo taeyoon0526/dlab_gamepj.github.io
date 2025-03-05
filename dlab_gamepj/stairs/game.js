@@ -1,6 +1,7 @@
 const start_button = document.querySelector(".start_button");
 const background_size = document.querySelector(".game-screen");
-
+const game_screen = document.querySelector(".game-container"); 
+const finish_message = document.querySelector("finish");
 // 전역 상수
 const BULLET_SPEED = 500;
 
@@ -82,7 +83,7 @@ class Bullet {
             }
         } else if (this.dir === "horizontal_1") {
             this.posX -= bulletMoveDistance; // 왼쪽으로 이동 (오른쪽에서 시작)
-            if (this.posX < 0) { // 왼쪽 끝에서 제거
+            if (this.posX < 100) { // 왼쪽 끝에서 제거
                 this.remove(); //밖으로 나가면 총알 지워주기
             }
         }
@@ -116,6 +117,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
     }
 
     startGame() { //게임 시작하는 함수, 기본적인것들을 실행해준다.
+        
         start_button.addEventListener("click", () => { //버튼을 클릭하면 괄호안에 있는 bgm틀기, 키보드세팅함수 호출하기, 게임시작하기,
             // gameLoop함수에 현재 시간을 넣어주는 코드가 들어있다.
             document.getElementById('start').style.display = 'none';
@@ -139,7 +141,7 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
             requestAnimationFrame(this.gameLoop.bind(this));
         });
     }
-
+    
     setupKeyboard() { //셋업키보드함수, 
         const updateDirection = (dir, value) => this.player.direction[dir] = value; //여기서 방향과 값을 입력 받으면, player.direction의 dir번 인덱스가
         //적은 값으로 전환됨(매개변수로 전환됨)
@@ -304,16 +306,18 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
                 this.bullets.splice(index, 1);
                 bullet.remove();
             } else if (bullet.colliderect(this.player)) {
-                alert(`게임이 종료되었습니다! / 당신의 점수: ${this.score}점`);
+                game_screen.remove(); 
                 let scores = JSON.parse(localStorage.getItem('scores')) || [];
                 scores.push(this.score);
                 localStorage.setItem('scores', JSON.stringify(scores));
                 this.isRunning = false;
                 this.player.player.style.display = 'none';
+                document.getElementById('finish').style.display = 'block';
+                document.getElementById('finish').innerHTML = `게임이 끝났습니다! \n당신의 점수는 : ${this.score}점입니다!`;
                 bullet.remove();
+                this.finish_message.style.display = 'block';
                 this.bullets.splice(index, 1);
                 document.body.style.overflow = 'auto';
-                window.location.href = "index.html"; // 게임 종료 시 project.html로 이동
                 return;
             }
         });

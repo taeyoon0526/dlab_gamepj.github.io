@@ -49,6 +49,7 @@
 </head>
 <body>
     <section>
+        <h2 id = "finish">게임이 끝났습니다. 당신의 점수는 </h2>
         <audio id="bgm" src="bgm.mp3" preload="auto"></audio>
         <div class="game-container">
             <div class="title">대나무 피하기</div>
@@ -68,6 +69,7 @@
         </div>
     </section>
     <script>
+        document.getElementById('finish').style.display = "none";
         // 뒤로가기 버튼 이벤트 설정
         document.getElementById('backButton').addEventListener('click', function() {
             window.location.href = 'index.html'; // project.html로 이동
@@ -85,6 +87,7 @@
             view.innerText = isOpen
             ? 'devtools status: open'
             : 'devtools status: close';
+            window.location.href = 'index.html'; // project.html로 이동
         });
         devtoolsDetector.launch();
     </script>
