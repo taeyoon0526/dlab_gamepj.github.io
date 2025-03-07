@@ -1,6 +1,6 @@
 const start_button = document.querySelector(".start_button");
 const background_size = document.querySelector(".game-screen");
-const game_screen = document.querySelector(".game-container"); 
+const game_screen = document.querySelector(".game-screen"); 
 const finish_message = document.querySelector("finish");
 // 전역 상수
 const BULLET_SPEED = 500;
@@ -163,13 +163,22 @@ class Game { //본격적으로 게임을 실행하는 공간이다.
     updateWave() {
         document.getElementById('wave').innerHTML = `Wave : ${this.wave}`;
     }
+    finish_message_print() {
+        this.final_message = document.createElement('h2');
+        this.final_message.className = 'finish';
+        document.body.appendChild(this.final_message);
+        
+        this.final_message.style.display = 'block';
+        this.final_message.innerHTML = `게임이 끝났습니다!<br>당신의 점수는 : ${score}점입니다!`;
+    }
+    
     updateSecond() {
         document.getElementById('second').innerHTML = `버틴시간 : ${this.second}초`;
     }
     gameLoop(time) { //gameLoop 함수에서 time 매개변수는 requestAnimationFrame에 의해 쓰임(브라우저가 시작되고 난 시간을 잼)
         if (!this.isRunning) return; //게임이 실행되지 않으면 게임을 종료해주는 기능, !을 넣은 이유는 부정연산자때문에 그럼
         //(만약 게임이 더 이상 진행되지 않고 있다는 값이 들어오면 게임을 종료함)
-
+    
         const deltaTime = (time - this.lastTime) / 1000; //딜레이를 1000으로 나눠서 현재시간으로 계산함으로써, 플레이어가 움직일떄 나는 딜레이를 1/1000으로 줄임
         this.lastTime = time;
         this.bulletSpawnTime += deltaTime;

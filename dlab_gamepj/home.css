@@ -52,6 +52,9 @@ header {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   transition: all 0.2s ease;
+  text-decoration: none; /* 링크 기본 밑줄 제거 */
+  display: block; /* 링크를 블록 요소로 */
+  position: relative; /* 말풍선 위치 기준 */
 }
 
 /* 버튼 호버/클릭 효과 */
