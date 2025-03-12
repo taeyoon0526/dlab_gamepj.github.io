@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ecbacaba-23fc-416d-b203-772e8925ca8b" name="변경" comment="경로 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/memory.css" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/memory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/memory.html" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/memory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_1/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/dlab_gamepj/memory/stage_2/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1741170728238" duration="192000" />
       <workItem from="1741170944398" duration="34000" />
       <workItem from="1741170989371" duration="903000" />
-      <workItem from="1741771996883" duration="914000" />
+      <workItem from="1741771996883" duration="2365000" />
     </task>
     <task id="LOCAL-00001" summary="파일 위치 수정">
       <option name="closed" value="true" />
@@ -171,7 +171,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741772077754</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="돌아가기">
+      <option name="closed" value="true" />
+      <created>1741772955478</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741772955478</updated>
+    </task>
+    <task id="LOCAL-00011" summary="경로 수정">
+      <option name="closed" value="true" />
+      <created>1741773130121</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741773130121</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +199,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="업데이트" />
     <MESSAGE value="버그 수정" />
+    <MESSAGE value="돌아가기" />
     <MESSAGE value="경로 수정" />
     <option name="LAST_COMMIT_MESSAGE" value="경로 수정" />
   </component>

@@ -21,7 +21,7 @@ startBtn.addEventListener("click", () => {
 
 // 메뉴 버튼 클릭 시 메뉴 화면으로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "/dlab_gamepj.github.io/index.html"; // memory/ 상위로 이동 (루트 index.html)
+    window.location.href = "../../index.html"; // memory/ 상위로 이동 (루트 index.html)
 });
 
 // 게임 시작

@@ -1,8 +1,7 @@
 const startBtn = document.querySelector(".btn"); // "게임 시작" 버튼
 const board = document.querySelector(".game-board");
 const timerDisplay = document.querySelector(".timer");
-const menuBtn = document.querySelector(".menu-btn"); // "메뉴 화면으로" 버튼
-const stage1Btn = document.querySelector(".stage1-btn");
+const menuBtn = document.querySelector(".menu_btn"); // "메뉴 화면으로" 버튼
 
 const icons = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐵", "🐮", "🐷", "🐸"];
 let cards = [...icons, ...icons.slice(0, 12)]; // 25장 (13쌍 + 12개 중복으로 안정성 강화)
@@ -25,14 +24,9 @@ startBtn.addEventListener("click", () => {
     startGame();
 });
 
-// 스테이지1 버튼 클릭 시 스테이지 1로 이동
-stage1Btn.addEventListener("click", () => {
-    window.location.href = "../../memory/stage_1/index.html";
-});
-
-// 메뉴 버튼 클릭 시 메뉴 화면으로 이동
+// 메뉴 버튼 클릭 시 ../index.html로 이동
 menuBtn.addEventListener("click", () => {
-    window.location.href = "/dlab_gamepj.github.io/index.html"; // memory/ 상위로 이동 (루트 index.html)
+    window.location.href = "/index.html"; // 루트의 index.html로 이동
 });
 
 // 게임 시작
@@ -56,10 +50,6 @@ function startGame() {
     if (buttonContainer) {
         buttonContainer.remove();
         buttonContainer = null;
-    }
-
-    if (stage1Btn) {
-        stage1Btn.remove();
     }
 
     cards.sort(() => Math.random() - 0.5);
