@@ -1,0 +1,65 @@
+/* body 기본 스타일 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #cae3fd; /* 스크린샷과 비슷한 연한 파란색 배경 */
+  font-family: Arial, sans-serif;
+}
+
+/* .container: 흰색 직사각형 영역 + 파란색 테두리 */
+.container {
+  /* 화면 폭에 맞춰 중앙정렬 + 높이 고정 */
+  width: 80%;
+  max-width: 1200px;
+  height: 500px; /* 필요 시 스크린샷 비율에 맞춰 조정 */
+  margin: 50px auto; /* 위아래 50px, 좌우 가운데 */
+  position: relative; /* 내부 절대배치(버튼 등)에 사용 */
+  background-color: #fff;
+  border: 3px solid #42a5f5; /* 진한 파란 테두리 */
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 상단 제목과 안내문구 */
+header {
+  text-align: center;
+  margin-top: 20px; /* 상단 여백 */
+}
+
+/* 하단 버튼 목록 */
+.game-list {
+  position: absolute; 
+  bottom: 40px;       /* 박스 하단에서 40px 위 */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* 좌/중앙/우로 버튼 배치 */
+  padding: 0 60px;                /* 좌우 측면에 여백 */
+}
+
+/* 버튼 스타일 (MEMORY / Pi / BamBoo) */
+.game-button {
+  width: 300px;
+  height: 100px;
+  background: linear-gradient(180deg, #42a5f5, #2196f3); /* 위쪽 연한색-아래쪽 진한색 */
+  border: none;
+  border-radius: 20px;
+  font-size: 36px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;        /* 버튼 높이에 맞춰 글자 수직 정렬 */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+/* 버튼 호버/클릭 효과 */
+.game-button:hover {
+  filter: brightness(105%);
+}
+.game-button:active {
+  filter: brightness(95%);
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
